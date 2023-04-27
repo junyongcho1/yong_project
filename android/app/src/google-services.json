@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "547076965680",
+    "project_id": "yong-project-8b980",
+    "storage_bucket": "yong-project-8b980.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547076965680:android:a6a55ee7b91ccca92234f5",
+        "android_client_info": {
+          "package_name": "com.example.yong_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547076965680-d4bvogmjnctu207jsfl1j30tevji8oku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yong_project",
+            "certificate_hash": "4128df4caf89ad03a89668356b65d11615ea4584"
+          }
+        },
+        {
+          "client_id": "547076965680-ipcgoses0l5c74j2061kldnp2tie4a25.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbdZMN0tth1k58adgV5ouBrro-jZcAcpU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "547076965680-ipcgoses0l5c74j2061kldnp2tie4a25.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "547076965680-srsgvta2rdai4nr1bdn0fmhjfvb05755.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.yongProject"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
