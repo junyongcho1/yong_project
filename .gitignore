@@ -42,3 +42,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+#functions
+/functions/node_modules
+/functions/index.js
+/functions/yong-project-8b980-firebase-adminsdk-8n6td-9800608026.json

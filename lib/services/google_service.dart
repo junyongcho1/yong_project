@@ -63,6 +63,7 @@ class GoogleService {
       print('User email: $userEmail');
       print('User name: $userName');
       print('User photo URL: $userPhotoUrl');
+      print('$_googleUser');
 
       //파이어 베이스 Signin하고 결과(userCredential) 리턴햇!
       //return await FirebaseAuth.instance.signInWithCredential(credential);
