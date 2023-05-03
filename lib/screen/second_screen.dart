@@ -11,56 +11,50 @@ class SecondScreen extends StatefulWidget {
 }
 
 class _SecondScreenState extends State<SecondScreen> {
+  int counter = 0;
+  void incrementCounter() {
+    setState(() {
+      counter++;
+    });
+  }
+
+  void decrementCounter() {
+    setState(() {
+      counter--;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
     Signout _signout = Signout();
     return Scaffold(
-        body: Padding(
-      padding: EdgeInsets.all(32),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('로그인 됨'),
-          SizedBox(
-            height: 8,
+        body: Center(
+          child: Text(
+            'first_Home $counter',
+            style: TextStyle(color: Colors.black),
           ),
-          // CircleAvatar(
-          //   radius: 40,
-          //   backgroundImage: NetworkImage(user.photoURL!),
-          // ),
-          // SizedBox(
-          //   height: 8,
-          // ),
-          // Text(
-          //   '이름: ' + user.displayName!,
-          //   style: TextStyle(color: Colors.white, fontSize: 16),
-          // ),
-          // SizedBox(
-          //   height: 8,
-          // ),
-          Text(
-            '이메일: ' + user.email!,
-            style: TextStyle(color: Colors.black, fontSize: 16),
-          ),
-          Text(
-            '이름: ' + user.displayName!,
-            style: TextStyle(color: Colors.black, fontSize: 16),
-          ),
-
-          SizedBox(
-            height: 8,
-          ),
-          ElevatedButton(
-              onPressed: () {
-                _signout.signout();
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => StartPage()));
-                // signOut();
-              },
-              child: Text('real 로그아웃!!'))
-        ],
-      ),
-    ));
+        ),
+        floatingActionButton: Stack(
+          children: <Widget>[
+            Align(
+              alignment: Alignment(
+                  Alignment.bottomRight.x, Alignment.bottomRight.x - 0.2),
+              child: FloatingActionButton(
+                onPressed: incrementCounter,
+                tooltip: '증가',
+                child: Icon(Icons.add),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: FloatingActionButton(
+                onPressed: decrementCounter,
+                tooltip: '증가',
+                child: Icon(Icons.remove),
+              ),
+            )
+          ],
+        ));
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({super.key});
@@ -10,13 +11,6 @@ class FirstScreen extends StatefulWidget {
 class _FirstScreenState extends State<FirstScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          'first_Home',
-          style: TextStyle(color: Colors.black),
-        ),
-      ),
-    );
+    return Scaffold(body: ListView());
   }
 }
