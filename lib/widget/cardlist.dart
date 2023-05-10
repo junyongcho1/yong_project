@@ -40,52 +40,52 @@ class CardSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        //color: Colors.transparent,
-        width: width,
-        height: height,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(borderRadius),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.7),
-              blurRadius: 5.0,
-              spreadRadius: 0.0,
-              offset: const Offset(0, 5),
-            ),
-          ],
-          color: cardColor,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // InkWell(
-            //   onTap: () {
-            //     onTap!();
-            //   },
-            // ),
-            ClipRRect(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(borderRadius),
-                topRight: Radius.circular(borderRadius),
+      //color: Colors.transparent,
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(borderRadius),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.7),
+            blurRadius: 5.0,
+            spreadRadius: 0.0,
+            offset: const Offset(0, 5),
+          ),
+        ],
+        color: cardColor,
+      ),
+      child: InkWell(
+          onTap: () {
+            onTap!();
+          },
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(borderRadius),
+                  topRight: Radius.circular(borderRadius),
+                ),
+                child: Image(
+                  image: imageProvider,
+                  width: width,
+                  height: heightImage,
+                  fit: BoxFit.cover,
+                ),
               ),
-              child: Image(
-                image: imageProvider,
-                width: width,
-                height: heightImage,
-                fit: BoxFit.cover,
-              ),
-            ),
-            ImageCardContent(
-              contentPadding: contentPadding,
-              tags: tags,
-              title: title,
-              footer: footer,
-              description: description,
-              tagSpacing: tagSpacing,
-              tagRunSpacing: tagRunSpacing,
-            )
-          ],
-        ));
+              ImageCardContent(
+                contentPadding: contentPadding,
+                tags: tags,
+                title: title,
+                footer: footer,
+                description: description,
+                tagSpacing: tagSpacing,
+                tagRunSpacing: tagRunSpacing,
+              )
+            ],
+          )),
+    );
   }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:http/http.dart';
 import 'package:yong_project/widget/cardlist.dart';
 export 'package:yong_project/widget/cardlist.dart';
+import 'package:yong_project/widget/onlyimagecard.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({super.key});
@@ -126,7 +128,22 @@ class _FirstScreenState extends State<FirstScreen> {
           height: 100,
           decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/carousel/baner2.webp'),
+                image: AssetImage('assets/carousel/baner4.png'),
+                fit: BoxFit.cover),
+          ),
+          child: InkWell(
+            onTap: () {
+              print('배너 클릭');
+            },
+          ),
+        ),
+        SizedBox(height: 20),
+        Container(
+          width: 300,
+          height: 100,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/carousel/baner3.jpeg'),
                 fit: BoxFit.cover),
           ),
           child: InkWell(
@@ -138,148 +155,19 @@ class _FirstScreenState extends State<FirstScreen> {
         SizedBox(
           height: 20,
         ),
-        // SizedBox(
-        //     height: 300,
-        //     child: DecoratedBox(
-        //       decoration:
-        //           BoxDecoration(color: Color.fromARGB(255, 245, 149, 181)),
-        //       child: Column(children: [
-        //         Text(
-        //           '영상으로 구경하는 어플리케이션',
-        //           textAlign: TextAlign.start,
-        //           style: TextStyle(
-        //             color: Colors.white,
-        //             fontWeight: FontWeight.bold,
-        //             fontSize: 25,
-        //           ),
-        //         ),
-        //         Text(
-        //           '원하는 어플리케이션을 클릭해보세요. 어플 소개영상이 있어요.',
-        //           textAlign: TextAlign.center,
-        //           style: TextStyle(
-        //             color: Colors.white,
-        //             fontSize: 15,
-        //           ),
-        //         )
-        //       ]),
-        //     )),
-        // SizedBox(
-        //   height: 300,
-        //   child: Column(children: [
-        //     Text(
-        //       '영상으로 구경하는 어플리케이션',
-        //       textAlign: TextAlign.start,
-        //       style: TextStyle(
-        //         color: Colors.white,
-        //         fontWeight: FontWeight.bold,
-        //         fontSize: 25,
-        //       ),
-        //     ),
-        //     Text(
-        //       '원하는 어플리케이션을 클릭해보세요. 어플 소개영상이 있어요.',
-        //       textAlign: TextAlign.center,
-        //       style: TextStyle(
-        //         color: Colors.white,
-        //         fontSize: 15,
-        //       ),
-        //     )
-        //   ]),
-        // ),
-        ////////////////////////////////////////////////////////////
-        // Container(
-        //     padding: EdgeInsets.only(left: 15),
-        //     height: 300,
-        //     decoration: BoxDecoration(
-        //       color: Color.fromARGB(255, 245, 149, 181),
-        //     ),
-        //     child: Column(
-        //       crossAxisAlignment: CrossAxisAlignment.start,
-        //       children: [
-        //         SizedBox(
-        //           height: 25,
-        //         ),
-        //         //margin: EdgeInsets.only(left: 20, top: 30),
-        //         Text(
-        //           '영상으로 구경하는 어플리케이션',
-        //           textAlign: TextAlign.start,
-        //           style: TextStyle(
-        //             color: Colors.white,
-        //             fontWeight: FontWeight.bold,
-        //             fontSize: 25,
-        //           ),
-        //         ),
-        //         SizedBox(
-        //           height: 10,
-        //         ),
-        //         Text(
-        //           '원하는 어플리케이션을 클릭해보세요. 어플 소개영상이 있어요.',
-        //           textAlign: TextAlign.start,
-        //           style: TextStyle(
-        //             color: Colors.white,
-        //             fontSize: 15,
-        //           ),
-        //         )
-        //       ],
-        //     )),
-        ///////////////////////////////////////////////////
-        // Container(
-        //     padding: EdgeInsets.only(left: 15),
-        //     height: 300,
-        //     decoration: BoxDecoration(
-        //       color: Color.fromARGB(255, 245, 149, 181),
-        //     ),
-        //     child: Stack(
-        //       children: [
-        //         Positioned(
-        //             top: 25,
-        //             left: 0,
-        //             child: Text(
-        //               '영상으로 구경하는 어플리케이션',
-        //               textAlign: TextAlign.start,
-        //               style: TextStyle(
-        //                 color: Colors.white,
-        //                 fontWeight: FontWeight.bold,
-        //                 fontSize: 25,
-        //               ),
-        //             )),
-        //         Positioned(
-        //             top: 55,
-        //             left: 0,
-        //             child: Text(
-        //               '원하는 어플리케이션을 클릭해보세요. 어플 소개영상이 있어요.',
-        //               textAlign: TextAlign.start,
-        //               style: TextStyle(
-        //                 color: Colors.white,
-        //                 fontSize: 15,
-        //               ),
-        //             )),
-        //         Positioned(
-        //             top: 100,
-        //             left: 0,
-        //             child: Container(
-        //               height: 100,
-        //               width: 50,
-        //               decoration: BoxDecoration(
-        //                 color: Color.fromARGB(255, 149, 167, 245),
-        //               ),
-        //             ))
-        //       ],
-        //     )),
         SizedBox(
-            //padding: EdgeInsets.only(left: 15),
-            height: 500,
-            //decoration: BoxDecoration(color: Colors.black),
+            height: 400,
             child: Stack(
               children: [
                 Positioned(
                     child: Container(
-                  height: 300,
+                  height: 280,
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 245, 149, 181),
                   ),
                 )),
                 Positioned(
-                    top: 25,
+                    top: 35,
                     left: 10,
                     child: Text(
                       '영상으로 구경하는 어플리케이션',
@@ -291,7 +179,7 @@ class _FirstScreenState extends State<FirstScreen> {
                       ),
                     )),
                 Positioned(
-                    top: 55,
+                    top: 70,
                     left: 10,
                     child: Text(
                       '원하는 어플리케이션을 클릭해보세요. 어플 소개영상이 있어요.',
@@ -301,235 +189,46 @@ class _FirstScreenState extends State<FirstScreen> {
                         fontSize: 15,
                       ),
                     )),
-                // Positioned(
-                //   top: 100,
-                //   left: 10,
-                //   child: ListView(
-                //     scrollDirection: Axis.horizontal,
-                //     children: [
-                //       CardSlider(
-                //         height: 280,
-                //         width: 200,
-                //         heightImage: 180,
-                //         onTap: () {
-                //           print('snfma');
-                //         },
-                //         imageProvider: AssetImage('assets/carousel/rei.png'),
-                //         tags: [
-                //           _tag('아이브', () {
-                //             print('아이브');
-                //           }),
-                //           _tag('레이', () {
-                //             print('콩순이');
-                //           })
-                //         ],
-                //         title: Text(
-                //           '보령점',
-                //           style: TextStyle(
-                //               fontSize: 20, fontWeight: FontWeight.bold),
-                //         ), //_title(),
-                //         description: Text(
-                //           '어플 구경 쌉가능',
-                //           style: TextStyle(
-                //               fontSize: 15, fontWeight: FontWeight.bold),
-                //         ), //_content(),
-                //       ),
-                //       SizedBox(
-                //         width: 20,
-                //       ),
-                //       CardSlider(
-                //         height: 280,
-                //         width: 200,
-                //         heightImage: 180,
-                //         onTap: () {
-                //           print('snfma');
-                //         },
-                //         imageProvider:
-                //             AssetImage('assets/carousel/chaewon.png'),
-                //         tags: [
-                //           _tag('르세라핌', () {
-                //             print('르세라핌');
-                //           }),
-                //           _tag('채원', () {
-                //             print('채원');
-                //           })
-                //         ],
-                //         title: Text(
-                //           '보령점',
-                //           style: TextStyle(
-                //               fontSize: 20, fontWeight: FontWeight.bold),
-                //         ), //_title(),
-                //         description: Text(
-                //           '어플 구경 쌉가능',
-                //           style: TextStyle(
-                //               fontSize: 15, fontWeight: FontWeight.bold),
-                //         ), //_content(),
-                //       ),
-                //       SizedBox(
-                //         width: 20,
-                //       ),
-                //       CardSlider(
-                //         height: 260,
-                //         width: 200,
-                //         heightImage: 180,
-                //         onTap: () {
-                //           print('snfma');
-                //         },
-                //         imageProvider: AssetImage('assets/google.png'),
-                //         // tags: [_tag('Category', () {}), _tag('Product', () {})],
-                //         title: Text('보령점'), //_title(),
-                //         description: Text('어플 구경 쌉가능'), //_content(),
-                //       ),
-                //     ],
-                //   ),
-                // ),
-                ///////////////////////////////////////////////
-                // Container(
-                //   height: 280,
-                //   child: ListView(
-                //     scrollDirection: Axis.horizontal,
-                //     children: [
-                //       CardSlider(
-                //         height: 280,
-                //         width: 200,
-                //         heightImage: 180,
-                //         onTap: () {
-                //           print('snfma');
-                //         },
-                //         imageProvider: AssetImage('assets/carousel/rei.png'),
-                //         tags: [
-                //           _tag('아이브', () {
-                //             print('아이브');
-                //           }),
-                //           _tag('레이', () {
-                //             print('콩순이');
-                //           })
-                //         ],
-                //         title: Text(
-                //           '보령점',
-                //           style: TextStyle(
-                //               fontSize: 20, fontWeight: FontWeight.bold),
-                //         ), //_title(),
-                //         description: Text(
-                //           '어플 구경 쌉가능',
-                //           style: TextStyle(
-                //               fontSize: 15, fontWeight: FontWeight.bold),
-                //         ), //_content(),
-                //       ),
-                //       SizedBox(
-                //         width: 20,
-                //       ),
-                //       CardSlider(
-                //         height: 280,
-                //         width: 200,
-                //         heightImage: 180,
-                //         onTap: () {
-                //           print('snfma');
-                //         },
-                //         imageProvider:
-                //             AssetImage('assets/carousel/chaewon.png'),
-                //         tags: [
-                //           _tag('르세라핌', () {
-                //             print('르세라핌');
-                //           }),
-                //           _tag('채원', () {
-                //             print('채원');
-                //           })
-                //         ],
-                //         title: Text(
-                //           '보령점',
-                //           style: TextStyle(
-                //               fontSize: 20, fontWeight: FontWeight.bold),
-                //         ), //_title(),
-                //         description: Text(
-                //           '어플 구경 쌉가능',
-                //           style: TextStyle(
-                //               fontSize: 15, fontWeight: FontWeight.bold),
-                //         ), //_content(),
-                //       ),
-                //       SizedBox(
-                //         width: 20,
-                //       ),
-                //       CardSlider(
-                //         height: 260,
-                //         width: 200,
-                //         heightImage: 180,
-                //         onTap: () {
-                //           print('snfma');
-                //         },
-                //         imageProvider: AssetImage('assets/google.png'),
-                //         // tags: [_tag('Category', () {}), _tag('Product', () {})],
-                //         title: Text('보령점'), //_title(),
-                //         description: Text('어플 구경 쌉가능'), //_content(),
-                //       ),
-                //     ],
-                //   ),
-                // ),
-                ///////////////////////////
+
+                //////////////////////////positioned///////////
                 Positioned(
-                  top: 100,
-                  left: 10,
+                  top: 80,
+                  left: 0,
+                  width: MediaQuery.of(context).size.width,
+                  height: 300,
                   child: SingleChildScrollView(
                     //physics: BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
+                        SizedBox(
+                          width: 10,
+                        ),
                         CardSlider(
-                          height: 280,
-                          width: 200,
-                          heightImage: 180,
+                          height: 260,
+                          width: 150,
+                          heightImage: 170,
                           onTap: () {
-                            print('snfma');
+                            print('레이');
                           },
                           imageProvider: AssetImage('assets/carousel/rei.png'),
                           tags: [
-                            _tag('아이브', () {
-                              print('아이브');
-                            }),
+                            // _tag('아이브', () {
+                            //   print('아이브');
+                            // }),
                             _tag('레이', () {
                               print('콩순이');
                             })
                           ],
                           title: Text(
-                            '보령점',
+                            'IVE',
                             style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
+                                fontSize: 18, fontWeight: FontWeight.bold),
                           ), //_title(),
                           description: Text(
                             '어플 구경 쌉가능',
                             style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.bold),
-                          ), //_content(),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        CardSlider(
-                          height: 280,
-                          width: 200,
-                          heightImage: 180,
-                          onTap: () {
-                            print('snfma');
-                          },
-                          imageProvider:
-                              AssetImage('assets/carousel/chaewon.png'),
-                          tags: [
-                            _tag('르세라핌', () {
-                              print('르세라핌');
-                            }),
-                            _tag('채원', () {
-                              print('채원');
-                            })
-                          ],
-                          title: Text(
-                            '보령점',
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
-                          ), //_title(),
-                          description: Text(
-                            '어플 구경 쌉가능',
-                            style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.bold),
+                                fontSize: 13, fontWeight: FontWeight.bold),
                           ), //_content(),
                         ),
                         SizedBox(
@@ -537,15 +236,85 @@ class _FirstScreenState extends State<FirstScreen> {
                         ),
                         CardSlider(
                           height: 260,
-                          width: 200,
-                          heightImage: 180,
+                          width: 150,
+                          heightImage: 170,
                           onTap: () {
-                            print('snfma');
+                            print('채원');
                           },
-                          imageProvider: AssetImage('assets/google.png'),
-                          // tags: [_tag('Category', () {}), _tag('Product', () {})],
-                          title: Text('보령점'), //_title(),
-                          description: Text('어플 구경 쌉가능'), //_content(),
+                          imageProvider:
+                              AssetImage('assets/carousel/chaewon.png'),
+                          tags: [
+                            // _tag('르세라핌', () {
+                            //   print('르세라핌');
+                            // }),
+                            _tag('채원', () {
+                              print('채원');
+                            })
+                          ],
+                          title: Text(
+                            'LE SSERAFIM',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ), //_title(),
+                          description: Text(
+                            '어플 구경 쌉가능',
+                            style: TextStyle(
+                                fontSize: 13, fontWeight: FontWeight.bold),
+                          ), //_content(),
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        CardSlider(
+                          height: 260,
+                          width: 150,
+                          heightImage: 170,
+                          onTap: () {
+                            print('이나경');
+                          },
+                          imageProvider:
+                              AssetImage('assets/carousel/nageong.jpeg'),
+                          tags: [
+                            //_tag('Category', () {}),
+                            _tag('이나경', () {})
+                          ],
+                          title: Text(
+                            'fromis_9',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ), //_title(),
+                          description: Text(
+                            '어플 구경 쌉가능',
+                            style: TextStyle(
+                                fontSize: 13, fontWeight: FontWeight.bold),
+                          ), //_content(),
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        CardSlider(
+                          height: 260,
+                          width: 150,
+                          heightImage: 170,
+                          onTap: () {
+                            print('카리나');
+                          },
+                          imageProvider:
+                              AssetImage('assets/carousel/karina.png'),
+                          tags: [
+                            //_tag('Category', () {}),
+                            _tag('카리나', () {})
+                          ],
+                          title: Text(
+                            'aespa',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ), //_title(),
+                          description: Text(
+                            '어플 구경 쌉가능',
+                            style: TextStyle(
+                                fontSize: 13, fontWeight: FontWeight.bold),
+                          ), //_content(),
                         ),
                       ],
                     ),
@@ -553,6 +322,215 @@ class _FirstScreenState extends State<FirstScreen> {
                 )
               ],
             )),
+        Container(
+          padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+          child: Text('접속위치 주변 이용시설',
+              style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 95, 91, 91)),
+              textAlign: TextAlign.start),
+        ),
+        SizedBox(
+          height: 8,
+        ),
+        Container(
+          height: 200, //MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          //decoration: BoxDecoration(color: Colors.blue),
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              Row(
+                children: [
+                  SizedBox(
+                    width: 10,
+                  ),
+                  OnlyCardSlider(
+                    height: 150,
+                    width: 230,
+                    heightImage: 150,
+                    onTap: () {
+                      print('카리나2');
+                    },
+                    imageProviders: AssetImage('assets/carousel/karina.png'),
+                    title: Text(
+                      '카리나',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 95, 91, 91)),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  OnlyCardSlider(
+                    height: 150,
+                    width: 230,
+                    heightImage: 150,
+                    onTap: () {
+                      print('이나경2');
+                    },
+                    imageProviders: AssetImage('assets/carousel/nageong.jpeg'),
+                    title: Text(
+                      '이나경',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 95, 91, 91)),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  OnlyCardSlider(
+                    height: 150,
+                    width: 230,
+                    heightImage: 150,
+                    onTap: () {
+                      print('채원2');
+                    },
+                    imageProviders: AssetImage('assets/carousel/chaewon.png'),
+                    title: Text(
+                      '채원',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 95, 91, 91)),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  OnlyCardSlider(
+                    height: 150,
+                    width: 230,
+                    heightImage: 150,
+                    onTap: () {
+                      print('레이2');
+                    },
+                    imageProviders: AssetImage('assets/carousel/rei.png'),
+                    title: Text(
+                      '레이',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 95, 91, 91)),
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Container(
+          padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+          child: Text('애니매이션 쇼핑 할까요?',
+              style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 95, 91, 91)),
+              textAlign: TextAlign.start),
+        ),
+        SizedBox(
+          height: 8,
+        ),
+        Container(
+          child: Column(
+            children: <Widget>[
+              Row(children: [
+                SizedBox(
+                  width: 10,
+                ),
+                OnlyCardSlider(
+                  height: 150,
+                  width: 200,
+                  heightImage: 150,
+                  onTap: () {
+                    print('귀멸의 칼날:도공 마을편');
+                  },
+                  imageProviders: AssetImage('assets/cardimg/mictri.jpeg'),
+                  title: Text(
+                    '귀멸의칼날: 도공 마을편',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 95, 91, 91)),
+                  ),
+                  description: Text('300,000원'),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                OnlyCardSlider(
+                  height: 150,
+                  width: 200,
+                  heightImage: 150,
+                  onTap: () {
+                    print('나의 히어로 아카데미아');
+                  },
+                  imageProviders: AssetImage('assets/cardimg/hero.jpeg'),
+                  title: Text(
+                    '나의 히어로 아카데미아',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 95, 91, 91)),
+                  ),
+                  description: Text('200,000원'),
+                ),
+              ]),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 10,
+                  ),
+                  OnlyCardSlider(
+                    height: 150,
+                    width: 200,
+                    heightImage: 150,
+                    onTap: () {
+                      print('도쿄 리벤져스');
+                    },
+                    imageProviders: AssetImage('assets/cardimg/tokyo.jpeg'),
+                    title: Text(
+                      '도쿄 리벤져스',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 95, 91, 91)),
+                    ),
+                    description: Text('300,000원'),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  OnlyCardSlider(
+                    height: 150,
+                    width: 200,
+                    heightImage: 150,
+                    onTap: () {
+                      print('도쿄구울');
+                    },
+                    imageProviders: AssetImage('assets/cardimg/guoul.png'),
+                    title: Text(
+                      '도쿄구울',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 95, 91, 91)),
+                    ),
+                    description: Text('200,000원'),
+                  ),
+                ],
+              )
+            ],
+          ),
+        )
       ],
     ));
   }
