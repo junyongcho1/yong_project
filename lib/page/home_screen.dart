@@ -112,10 +112,10 @@ class _HomeScreenState extends State<HomeScreen> {
           // }
         },
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'profile'),
-          BottomNavigationBarItem(icon: Icon(Icons.quiz_sharp), label: 'lotto'),
-          BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Menu'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: '홈'),
+          BottomNavigationBarItem(icon: Icon(Icons.menu), label: '메뉴'),
+          BottomNavigationBarItem(icon: Icon(Icons.quiz_sharp), label: '로또'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: '프로필'),
         ],
       ),
     );
