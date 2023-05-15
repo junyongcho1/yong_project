@@ -14,7 +14,13 @@ class _ThirdScreenState extends State<ThirdScreen> {
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
+    //String Netimg=user.photoURL!;
     Signout _signout = Signout();
+    // void Profile_img(){
+    //   if(user.photoURL==null){
+    //     user.photoURL==
+    //   }
+    // }
     return Scaffold(
         body: ListView(
       //padding: EdgeInsets.all(32),
@@ -71,7 +77,10 @@ class _ThirdScreenState extends State<ThirdScreen> {
                     children: [
                       CircleAvatar(
                         radius: 40,
-                        backgroundImage: NetworkImage(user.photoURL!),
+                        backgroundImage: user.photoURL != null
+                            ? NetworkImage(user.photoURL!)
+                            : Image.asset('assets/carousel/nageong.jpeg').image,
+                        //NetworkImage(user.photoURL!),
                       ),
                       SizedBox(width: 20),
                       Column(
@@ -210,7 +219,143 @@ class _ThirdScreenState extends State<ThirdScreen> {
                   ],
                 ),
               ],
-            ))
+            )),
+        SizedBox(
+          height: 15,
+        ),
+        Divider(
+          thickness: 10,
+        ),
+        Container(
+          child: Column(
+            //mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              InkWell(
+                onTap: () {
+                  print('고객센터');
+                },
+                child: Container(
+                    margin: EdgeInsets.fromLTRB(25, 15, 100, 15),
+                    child: Text(
+                      '고객센터',
+                      style: TextStyle(fontSize: 20),
+                      //textAlign: TextAlign.start,
+                    )),
+              ),
+              Divider(
+                color: Colors.grey,
+                thickness: 1,
+                indent: 25,
+                endIndent: 25,
+              ),
+              /////
+              InkWell(
+                onTap: () {
+                  print('친구초대');
+                },
+                child: Container(
+                    margin: EdgeInsets.fromLTRB(25, 15, 0, 15),
+                    child: Text(
+                      '친구초대',
+                      style: TextStyle(fontSize: 20),
+                      //textAlign: TextAlign.start,
+                    )),
+              ),
+              Divider(
+                color: Colors.grey,
+                thickness: 1,
+                indent: 25,
+                endIndent: 25,
+              ),
+              /////
+              InkWell(
+                onTap: () {
+                  print('1:1 문의');
+                },
+                child: Container(
+                    margin: EdgeInsets.fromLTRB(25, 15, 0, 15),
+                    child: Text(
+                      '1:1 문의',
+                      style: TextStyle(fontSize: 20),
+                      //textAlign: TextAlign.start,
+                    )),
+              ),
+              Divider(
+                color: Colors.grey,
+                thickness: 1,
+                indent: 25,
+                endIndent: 25,
+              ),
+              /////
+              InkWell(
+                onTap: () {
+                  print('FAQ');
+                },
+                child: Container(
+                    margin: EdgeInsets.fromLTRB(25, 15, 0, 15),
+                    child: Text(
+                      'FAQ',
+                      style: TextStyle(fontSize: 20),
+                      //textAlign: TextAlign.start,
+                    )),
+              ),
+              Divider(
+                color: Colors.grey,
+                thickness: 1,
+                indent: 25,
+                endIndent: 25,
+              ),
+              /////
+              InkWell(
+                onTap: () {
+                  print('공지/이벤트');
+                },
+                child: Container(
+                    margin: EdgeInsets.fromLTRB(25, 15, 0, 15),
+                    child: Text(
+                      '공지/이벤트',
+                      style: TextStyle(fontSize: 20),
+                      //textAlign: TextAlign.start,
+                    )),
+              ),
+              Divider(
+                color: Colors.grey,
+                thickness: 1,
+                indent: 25,
+                endIndent: 25,
+              ),
+              ////
+              InkWell(
+                onTap: () {
+                  print('설정');
+                },
+                child: Container(
+                    margin: EdgeInsets.fromLTRB(25, 15, 0, 15),
+                    child: Text(
+                      '설정',
+                      style: TextStyle(fontSize: 20),
+                      //textAlign: TextAlign.start,
+                    )),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 20),
+        Container(
+          width: 300,
+          height: 100,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/carousel/baner4.png'),
+                fit: BoxFit.cover),
+          ),
+          child: InkWell(
+            onTap: () {
+              print('배너 클릭');
+            },
+          ),
+        ),
       ],
     ));
   }
