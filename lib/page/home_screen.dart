@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 //import 'package:yong_project/page/new_screen.dart';
 import 'package:yong_project/screen/first_screen.dart';
 import 'package:yong_project/screen/lotto_screen.dart';
+import 'package:yong_project/screen/naver_map.dart';
+//import 'package:yong_project/screen/naver_map.dart';
 import 'package:yong_project/screen/second_screen.dart';
 import 'package:yong_project/screen/thrid_screen.dart';
 //import 'package:yong_project/services/google_service.dart';
@@ -26,7 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
   final screens = [
     FirstScreen(),
-    SecondScreen(),
+    NaverMapScreen(),
+    //SecondScreen(),
     LottoScreen(),
     ThirdScreen(),
   ];
@@ -120,4 +123,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+  //     void _onMapCreated(NaverMapController controller) {
+  //   if (_controller.isCompleted) _controller = Completer();
+  //   _controller.complete(controller);
+  // }
 }

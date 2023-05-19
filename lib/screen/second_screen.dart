@@ -50,7 +50,7 @@ class _SecondScreenState extends State<SecondScreen> {
               alignment: Alignment.bottomRight,
               child: FloatingActionButton(
                 onPressed: decrementCounter,
-                tooltip: '증가',
+                tooltip: '감소',
                 child: Icon(Icons.remove),
               ),
             )

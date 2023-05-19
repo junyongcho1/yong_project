@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_naver_map/flutter_naver_map.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart' as kakao;
 import 'package:logger/logger.dart';
 import 'package:yong_project/page/login_screen.dart';
@@ -15,6 +16,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await NaverMapSdk.instance.initialize(
+      clientId: '1wdhjlsvd1',
+      onAuthFailed: (error) {
+        print('Auth failed: $error');
+      });
   runApp(const MyApp());
 }
 

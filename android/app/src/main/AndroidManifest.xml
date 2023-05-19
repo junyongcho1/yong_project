@@ -43,5 +43,11 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <!--NAVER API-->
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="1wdhjlsvd1" />
     </application>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 </manifest>
