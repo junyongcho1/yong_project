@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:yong_project/locations/location.dart';
 //import 'package:flutter/src/widgets/framework.dart';
 //import 'package:flutter/src/widgets/placeholder.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
@@ -15,6 +17,7 @@ import 'package:yong_project/screen/thrid_screen.dart';
 // import 'package:yong_project/services/kakao_login.dart';
 // import 'package:yong_project/services/kakao_main_view.dart';
 import 'package:yong_project/startpage.dart';
+import 'package:geolocator/geolocator.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -46,6 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.white,
         title: InkWell(
           onTap: () {
+            getCurrentLocation();
+            //getAddressFromCoordinates();
             print('title 누름');
           },
           child: Text(
@@ -66,7 +71,10 @@ class _HomeScreenState extends State<HomeScreen> {
             tooltip: '검색',
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              // getAddressFromCoordinates();
+              getAddressFromCurrentLocation();
+            },
             icon: Icon(Icons.shopping_cart_outlined),
             color: Colors.black,
             tooltip: '장바구니',
@@ -128,3 +136,68 @@ class _HomeScreenState extends State<HomeScreen> {
   //   _controller.complete(controller);
   // }
 }
+
+Future<Position> getCurrentLocation() async {
+  bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+  if (!serviceEnabled) {
+    // 위치 서비스가 비활성화되어 있을 때 처리할 내용 작성
+    return Future.error('Location services are disabled.');
+  }
+
+  Position position = await Geolocator.getCurrentPosition(
+    desiredAccuracy: LocationAccuracy.high,
+  );
+  String lat = position.latitude.toString();
+  String lon = position.longitude.toString();
+  print(lat);
+  print(lon);
+  return position;
+}
+
+Future<void> getAddressFromCurrentLocation() async {
+  // 현재 위치 가져오기
+  Position currentPosition = await getCurrentLocation();
+
+  // 현재 위치의 위도와 경도 값을 추출
+  double latitude = currentPosition.latitude;
+  double longitude = currentPosition.longitude;
+
+  // 주소 가져오기
+  String address = await getAddressFromCoordinates(latitude, longitude);
+
+  // 주소 출력
+  print(address);
+}
+
+Future<String> getAddressFromCoordinates(
+    double latitude, double longitude) async {
+  List<Placemark> placemarks =
+      await placemarkFromCoordinates(latitude, longitude);
+  print(placemarks);
+  if (placemarks.isEmpty) {
+    // 주소를 찾을 수 없을 때 처리할 내용 작성
+    return 'Unknown';
+  }
+
+  Placemark placemark = placemarks.first;
+  String address =
+      '${placemark.administrativeArea} ${placemark.locality} ${placemark.thoroughfare}';
+  print(address);
+  return address;
+}
+
+// Future<String> getAddressFromCoordinates(
+//     double latitude, double longitude) async {
+//   List<Placemark> placemarks =
+//       await placemarkFromCoordinates(latitude, longitude);
+//   if (placemarks.isEmpty) {
+//     // 주소를 찾을 수 없을 때 처리할 내용 작성
+//     return 'Unknown';
+//   }
+
+//   Placemark placemark = placemarks.first;
+//   String address =
+//       '${placemark.administrativeArea} ${placemark.locality} ${placemark.thoroughfare}';
+//   print(address);
+//   return address;
+// }

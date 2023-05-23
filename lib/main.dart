@@ -6,6 +6,7 @@ import 'package:logger/logger.dart';
 import 'package:yong_project/page/login_screen.dart';
 import 'package:yong_project/startpage.dart';
 import 'firebase_options.dart';
+import 'package:geolocator/geolocator.dart';
 
 var logger = Logger(
   printer: PrettyPrinter(),
@@ -22,6 +23,7 @@ void main() async {
         print('Auth failed: $error');
       });
   runApp(const MyApp());
+  requestLocationPermission();
 }
 
 class MyApp extends StatelessWidget {
@@ -36,5 +38,17 @@ class MyApp extends StatelessWidget {
       ),
       home: StartPage(),
     );
+  }
+}
+
+Future<void> requestLocationPermission() async {
+  LocationPermission permission = await Geolocator.checkPermission();
+  if (permission == LocationPermission.denied) {
+    permission = await Geolocator.requestPermission();
+    if (permission != LocationPermission.whileInUse &&
+        permission != LocationPermission.always) {
+      // 권한이 거부되었을 때 처리할 내용 작성
+      return;
+    }
   }
 }
