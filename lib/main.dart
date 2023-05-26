@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_naver_map/flutter_naver_map.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart' as kakao;
 import 'package:logger/logger.dart';
+import 'package:yong_project/locations/location.dart';
 import 'package:yong_project/page/login_screen.dart';
 import 'package:yong_project/startpage.dart';
 import 'firebase_options.dart';
@@ -22,6 +23,7 @@ void main() async {
       onAuthFailed: (error) {
         print('Auth failed: $error');
       });
+  //locations.getAddressFromCurrentLocation();
   runApp(const MyApp());
   requestLocationPermission();
 }

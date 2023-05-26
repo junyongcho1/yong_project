@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter_naver_map/flutter_naver_map.dart';
@@ -46,9 +48,11 @@ class _NaverMapScreenState extends State<NaverMapScreen> {
   //     );
   Widget _naverMapSection() => NaverMap(
         options: const NaverMapViewOptions(
-            indoorEnable: true,
-            locationButtonEnable: true,
-            consumeSymbolTapEvents: true),
+          indoorEnable: true,
+          locationButtonEnable: true,
+          consumeSymbolTapEvents: true,
+          //initialCameraPosition: latLng
+        ),
         onMapReady: (controller) async {
           _mapController = controller;
           mapControllerCompleter.complete(controller);
@@ -60,8 +64,12 @@ class _NaverMapScreenState extends State<NaverMapScreen> {
 
           // 현재 위치로 지도 이동
           final latLng = NLatLng(position.latitude, position.longitude);
+          final cameraUpdate =
+              NCameraUpdate.scrollAndZoomTo(target: latLng, zoom: 15);
+          //cameraUpdate.setAnimation(NCameraAnimation.fly, duration: Duration(seconds: 2));
+          //_mapController.moveCamera(cameraUpdate);
           // _mapController.moveCamera(
-          //   CameraPosition(
+          //   NCameraPosition(
           //     target: latLng,
           //     zoom: 15.0,
           //   ),
