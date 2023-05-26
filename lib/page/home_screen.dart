@@ -24,30 +24,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final GlobalController globalController =
       Get.put(GlobalController(), permanent: true);
-  final Locations locations = Locations();
-  // Future<Position> getCurrentLocation() async {
-  //   bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  //   if (!serviceEnabled) {
-  //     // 위치 서비스가 비활성화되어 있을 때 처리할 내용 작성
-  //     return Future.error('Location services are disabled.');
-  //   }
 
-  //   Position position = await Geolocator.getCurrentPosition(
-  //     desiredAccuracy: LocationAccuracy.high,
-  //   );
-  //   String lat = position.latitude.toString();
-  //   String lon = position.longitude.toString();
-  //   print(lat);
-  //   print(lon);
-  //   print('이건 33333');
-  //   return position;
-  // }
+  final Locations locations = Locations();
 
   Future<void> getAddressFromCurrentLocation() async {
     try {
       //Future<void>
       // 현재 위치 가져오기
-      Position currentPosition = await locations.getCurrentLocation();
+      //Position currentPosition = await locations.getCurrentLocation();
       // 현재 위치의 위도와 경도 값을 추출
       double latitude = globalController.getLatitude().value;
       double longitude = globalController.getLongitude().value;
@@ -57,7 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
       // 주소 가져오기
       String address = await getAddressFromCoordinates(latitude, longitude);
       // 주소 출력
-      print(address);
       print('이건 111111');
     } catch (e) {
       print('주소 없음');
@@ -85,25 +68,32 @@ class _HomeScreenState extends State<HomeScreen> {
     return address;
   }
 
+  ///////여기랑!!!!!!!!!!!!!!!!1
+  void initData() async {
+    await globalController.getLocation();
+    getAddressFromCurrentLocation();
+  }
+
   //final viewModel = MAinViewModel(KakaoLoginUp());
   int currentIndex = 0;
   final screens = [
     FirstScreen(),
     NaverMapScreen(),
-    //SecondScreen(),
     LottoScreen(),
     ThirdScreen(),
   ];
   @override
+  /////////여기랑!!!!!!!!!!!!!!!!1
   void initState() {
-    //locations.getCurrentLocation();
-    globalController.getLocation();
-    getAddressFromCurrentLocation();
-    getAddressFromCoordinates(globalController.getLatitude().value,
-        globalController.getLongitude().value);
+    //globalController.getLocation();
     //getAddressFromCurrentLocation();
+    // initData();
     super.initState();
+    initData();
   }
+  // getAddressFromCoordinates(globalController.getLatitude().value,
+  //     globalController.getLongitude().value);
+  //getAddressFromCurrentLocation();
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -164,7 +154,15 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: currentIndex,
         onTap: (index) {
           setState(() {
-            print(index);
+            if (index == 0) {
+              print('홈');
+            } else if (index == 1) {
+              print('지도');
+            } else if (index == 2) {
+              print('로또');
+            } else {
+              print('프로필');
+            }
             currentIndex = index;
           });
 
@@ -195,7 +193,7 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: '홈'),
-          BottomNavigationBarItem(icon: Icon(Icons.menu), label: '메뉴'),
+          BottomNavigationBarItem(icon: Icon(Icons.map), label: '지도'),
           BottomNavigationBarItem(icon: Icon(Icons.quiz_sharp), label: '로또'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: '프로필'),
         ],

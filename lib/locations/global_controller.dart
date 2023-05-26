@@ -83,7 +83,6 @@ class GlobalController extends GetxController {
     //     }
     //   }
     // }
-
     // When we reach here, permissions are granted and we can
     // continue accessing the position of the device.
     return await Geolocator.getCurrentPosition(
@@ -91,7 +90,10 @@ class GlobalController extends GetxController {
         .then((value) {
       _latitude.value = value.latitude;
       _longitude.value = value.longitude;
-
+      print(_isLoading);
+      print('getCurrent 실행 됨');
+      print('위도$_latitude');
+      print('경도$_longitude');
       // return FetchWeatherAPI()
       //     .processData(value.latitude, value.longitude)
       //     .then((value) {
