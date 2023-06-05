@@ -30,6 +30,8 @@ dependencies:
   geolocator: ^9.0.2
   geocoding: ^2.1.0
   get: ^4.6.5
+  flushbar: ^1.10.4
+  another_flushbar: ^1.12.30
 
 
 dev_dependencies:
@@ -49,6 +51,7 @@ flutter:
    - assets/
    - assets/carousel/
    - assets/cardimg/
+   - assets/draggable/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

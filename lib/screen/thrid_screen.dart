@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:yong_project/logout/signout.dart';
 import 'package:yong_project/startpage.dart';
 
+import '../pracscreen/draggable_example/draggable_screen.dart';
+
 class ThirdScreen extends StatefulWidget {
   const ThirdScreen({super.key});
 
@@ -232,7 +234,11 @@ class _ThirdScreenState extends State<ThirdScreen> {
             children: [
               InkWell(
                 onTap: () {
-                  print('Draggable');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => DraggableBasicPage()),
+                  );
                 },
                 child: Container(
                     margin: EdgeInsets.fromLTRB(25, 15, 100, 15),
