@@ -228,9 +228,26 @@ class _ThirdScreenState extends State<ThirdScreen> {
         ),
         Container(
           child: Column(
-            //mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              InkWell(
+                onTap: () {
+                  print('Draggable');
+                },
+                child: Container(
+                    margin: EdgeInsets.fromLTRB(25, 15, 100, 15),
+                    child: Text(
+                      'Draggable',
+                      style: TextStyle(fontSize: 20),
+                      //textAlign: TextAlign.start,
+                    )),
+              ),
+              Divider(
+                color: Colors.grey,
+                thickness: 1,
+                indent: 25,
+                endIndent: 25,
+              ),
               InkWell(
                 onTap: () {
                   print('고객센터');
@@ -255,7 +272,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
                   print('친구초대');
                 },
                 child: Container(
-                    margin: EdgeInsets.fromLTRB(25, 15, 0, 15),
+                    margin: EdgeInsets.fromLTRB(25, 15, 100, 15),
                     child: Text(
                       '친구초대',
                       style: TextStyle(fontSize: 20),
@@ -274,7 +291,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
                   print('1:1 문의');
                 },
                 child: Container(
-                    margin: EdgeInsets.fromLTRB(25, 15, 0, 15),
+                    margin: EdgeInsets.fromLTRB(25, 15, 100, 15),
                     child: Text(
                       '1:1 문의',
                       style: TextStyle(fontSize: 20),
@@ -293,7 +310,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
                   print('FAQ');
                 },
                 child: Container(
-                    margin: EdgeInsets.fromLTRB(25, 15, 0, 15),
+                    margin: EdgeInsets.fromLTRB(25, 15, 100, 15),
                     child: Text(
                       'FAQ',
                       style: TextStyle(fontSize: 20),
@@ -312,7 +329,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
                   print('공지/이벤트');
                 },
                 child: Container(
-                    margin: EdgeInsets.fromLTRB(25, 15, 0, 15),
+                    margin: EdgeInsets.fromLTRB(25, 15, 100, 15),
                     child: Text(
                       '공지/이벤트',
                       style: TextStyle(fontSize: 20),
@@ -331,7 +348,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
                   print('설정');
                 },
                 child: Container(
-                    margin: EdgeInsets.fromLTRB(25, 15, 0, 15),
+                    margin: EdgeInsets.fromLTRB(25, 15, 100, 15),
                     child: Text(
                       '설정',
                       style: TextStyle(fontSize: 20),
